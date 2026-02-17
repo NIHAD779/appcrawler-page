@@ -1,4 +1,4 @@
-export default function NavMapIllustration() {
+export default function AppCrawlerIllustration() {
   return (
     <svg
       viewBox="0 0 400 500"
@@ -13,8 +13,8 @@ export default function NavMapIllustration() {
         width="300"
         height="460"
         rx="30"
-        fill="#0A1F44"
-        stroke="#1E56A0"
+        fill="#F8FAFF"
+        stroke="#0077b6"
         strokeWidth="3"
       />
       
@@ -25,43 +25,43 @@ export default function NavMapIllustration() {
         width="260"
         height="400"
         rx="10"
-        fill="#F8FAFF"
+        fill="#0A1F44"
       />
       
       {/* Navigation nodes */}
       {/* Home node */}
-      <circle cx="200" cy="100" r="20" fill="#1E56A0" />
-      <text x="200" y="105" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">
+      <circle cx="200" cy="100" r="20" fill="#0077b6" />
+      <text x="200" y="105" textAnchor="middle" fill="#F8FAFF" fontSize="10" fontWeight="bold">
         H
       </text>
       
       {/* Profile node */}
-      <circle cx="280" cy="180" r="18" fill="#5EADF2" />
-      <text x="280" y="185" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold">
+      <circle cx="280" cy="180" r="18" fill="#0096c7" />
+      <text x="280" y="185" textAnchor="middle" fill="#F8FAFF" fontSize="9" fontWeight="bold">
         P
       </text>
       
       {/* Settings node */}
-      <circle cx="120" cy="180" r="18" fill="#5EADF2" />
-      <text x="120" y="185" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold">
+      <circle cx="120" cy="180" r="18" fill="#0096c7" />
+      <text x="120" y="185" textAnchor="middle" fill="#F8FAFF" fontSize="9" fontWeight="bold">
         S
       </text>
       
       {/* Detail node */}
-      <circle cx="200" cy="260" r="18" fill="#5EADF2" />
-      <text x="200" y="265" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold">
+      <circle cx="200" cy="260" r="18" fill="#00b4d8" />
+      <text x="200" y="265" textAnchor="middle" fill="#F8FAFF" fontSize="9" fontWeight="bold">
         D
       </text>
       
       {/* Cart node */}
-      <circle cx="280" cy="340" r="16" fill="#5EADF2" opacity="0.8" />
-      <text x="280" y="345" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold">
+      <circle cx="280" cy="340" r="16" fill="#48cae4" opacity="0.9" />
+      <text x="280" y="345" textAnchor="middle" fill="#0A1F44" fontSize="8" fontWeight="bold">
         C
       </text>
       
       {/* About node */}
-      <circle cx="120" cy="340" r="16" fill="#5EADF2" opacity="0.8" />
-      <text x="120" y="345" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold">
+      <circle cx="120" cy="340" r="16" fill="#48cae4" opacity="0.9" />
+      <text x="120" y="345" textAnchor="middle" fill="#0A1F44" fontSize="8" fontWeight="bold">
         A
       </text>
       
@@ -72,7 +72,7 @@ export default function NavMapIllustration() {
         y1="110"
         x2="265"
         y2="170"
-        stroke="#1E56A0"
+        stroke="#00b4d8"
         strokeWidth="2"
         strokeDasharray="4 2"
       />
@@ -83,7 +83,7 @@ export default function NavMapIllustration() {
         y1="110"
         x2="135"
         y2="170"
-        stroke="#1E56A0"
+        stroke="#00b4d8"
         strokeWidth="2"
         strokeDasharray="4 2"
       />
@@ -94,7 +94,7 @@ export default function NavMapIllustration() {
         y1="120"
         x2="200"
         y2="240"
-        stroke="#1E56A0"
+        stroke="#00b4d8"
         strokeWidth="2"
         strokeDasharray="4 2"
       />
@@ -105,7 +105,7 @@ export default function NavMapIllustration() {
         y1="270"
         x2="265"
         y2="330"
-        stroke="#5EADF2"
+        stroke="#48cae4"
         strokeWidth="1.5"
         strokeDasharray="3 2"
       />
@@ -116,7 +116,7 @@ export default function NavMapIllustration() {
         y1="270"
         x2="135"
         y2="330"
-        stroke="#5EADF2"
+        stroke="#48cae4"
         strokeWidth="1.5"
         strokeDasharray="3 2"
       />
@@ -127,17 +127,17 @@ export default function NavMapIllustration() {
         y1="198"
         x2="280"
         y2="324"
-        stroke="#5EADF2"
+        stroke="#0096c7"
         strokeWidth="1.5"
         strokeDasharray="3 2"
         opacity="0.6"
       />
       
       {/* Decorative dots for visual interest */}
-      <circle cx="90" cy="120" r="3" fill="#5EADF2" opacity="0.3" />
-      <circle cx="310" cy="240" r="3" fill="#5EADF2" opacity="0.3" />
-      <circle cx="90" cy="300" r="3" fill="#5EADF2" opacity="0.3" />
-      <circle cx="310" cy="140" r="3" fill="#5EADF2" opacity="0.3" />
+      <circle cx="90" cy="120" r="3" fill="#0096c7" opacity="0.5" />
+      <circle cx="310" cy="240" r="3" fill="#48cae4" opacity="0.5" />
+      <circle cx="90" cy="300" r="3" fill="#0096c7" opacity="0.5" />
+      <circle cx="310" cy="140" r="3" fill="#48cae4" opacity="0.5" />
     </svg>
   );
 }

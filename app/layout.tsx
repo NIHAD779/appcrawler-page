@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NavMap - Android Studio Navigation Plugin",
-  description: "Automatically analyze your Android codebase and generate visual navigation maps. Install the plugin for Android Studio and IntelliJ IDEA.",
+  title: "AppCrawler - Android Studio App Context Plugin",
+  description: "Analyze your entire Android codebase and get complete app context in minutes. View your app structure in tabular, graph, and mermaid formats right inside Android Studio.",
 };
 
 export default function RootLayout({
