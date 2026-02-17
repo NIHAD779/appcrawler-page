@@ -1,7 +1,38 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import AppCrawlerIllustration from "./components/AppCrawlerIllustration";
+import { CodebaseAnalysisIllustration, OutputFormatsIllustration, IDEIntegrationIllustration } from "./components/FeatureIllustrations";
+
+// Custom hook for scroll-reveal animations
+function useInView(options = {}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+        }
+      },
+      { threshold: 0.2, ...options }
+    );
+
+    const currentRef = ref.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [options]);
+
+  return [ref, isInView] as const;
+}
 
 export default function Home() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
@@ -93,53 +124,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Features Section - Narrative Layout */}
       <section id="features" className="py-24 md:py-32 px-6" style={{ backgroundColor: '#0D2850' }}>
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16" style={{ color: '#F8FAFF' }}>
-            Powerful Features, Simple Interface
+          <h2 className="text-4xl font-bold text-center mb-24" style={{ color: '#F8FAFF' }}>
+            Everything you need to understand your app
           </h2>
           
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Feature 1 */}
-            <div className="p-8 rounded-2xl border transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/30" style={{ backgroundColor: '#0A1F44', borderColor: 'rgba(0, 119, 182, 0.2)' }}>
-              <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style={{ backgroundColor: 'rgba(0, 119, 182, 0.15)' }}>
-                <svg className="w-8 h-8" style={{ color: '#00b4d8' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-3" style={{ color: '#F8FAFF' }}>Complete Codebase Analysis</h3>
-              <p style={{ color: 'rgba(248, 250, 255, 0.7)' }}>
-                Scan your entire Android project in minutes. Get comprehensive app context including screens, navigation flows, and architecture patterns.
-              </p>
-            </div>
-            
-            {/* Feature 2 */}
-            <div className="p-8 rounded-2xl border transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/30" style={{ backgroundColor: '#0A1F44', borderColor: 'rgba(0, 119, 182, 0.2)' }}>
-              <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style={{ backgroundColor: 'rgba(0, 150, 199, 0.15)' }}>
-                <svg className="w-8 h-8" style={{ color: '#48cae4' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-3" style={{ color: '#F8FAFF' }}>Multiple Output Formats</h3>
-              <p style={{ color: 'rgba(248, 250, 255, 0.7)' }}>
-                View your app context in tabular data, interactive graphs, or mermaid diagrams. Export and share with your team.
-              </p>
-            </div>
-            
-            {/* Feature 3 */}
-            <div className="p-8 rounded-2xl border transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/30" style={{ backgroundColor: '#0A1F44', borderColor: 'rgba(0, 119, 182, 0.2)' }}>
-              <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style={{ backgroundColor: 'rgba(0, 180, 216, 0.15)' }}>
-                <svg className="w-8 h-8" style={{ color: '#00b4d8' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-3" style={{ color: '#F8FAFF' }}>Android Studio Native</h3>
-              <p style={{ color: 'rgba(248, 250, 255, 0.7)' }}>
-                Seamlessly integrated plugin that analyzes your complete app context without leaving your IDE. No external tools needed.
-              </p>
-            </div>
-          </div>
+          {/* Feature 1: Complete Codebase Analysis - Text Left, Illustration Right */}
+          <FeatureSection
+            title="Scan your entire codebase in minutes"
+            description="AppCrawler intelligently analyzes your complete Android project, extracting every screen, navigation flow, and architecture pattern. No manual documentation needed."
+            illustration={<CodebaseAnalysisIllustration />}
+            layoutRight={true}
+          />
+
+          {/* Feature 2: Multiple Output Formats - Text Right, Illustration Left */}
+          <FeatureSection
+            title="View your app context in any format"
+            description="Switch between tabular data for quick analysis, interactive graphs for visual exploration, or mermaid diagrams for documentation and team collaboration."
+            illustration={<OutputFormatsIllustration />}
+            layoutRight={false}
+          />
+
+          {/* Feature 3: Native Android Studio Integration - Text Left, Illustration Right */}
+          <FeatureSection
+            title="Works seamlessly in your IDE"
+            description="A native Android Studio plugin that delivers comprehensive app context directly in your workspace. Start analyzing with a single click—no context switching required."
+            illustration={<IDEIntegrationIllustration />}
+            layoutRight={true}
+          />
         </div>
       </section>
 
@@ -250,6 +264,48 @@ export default function Home() {
           </div>
         </div>
       </footer>
+    </div>
+  );
+}
+
+// Feature Section Component with scroll-reveal
+function FeatureSection({ title, description, illustration, layoutRight }: {
+  title: string;
+  description: string;
+  illustration: React.ReactNode;
+  layoutRight: boolean;
+}) {
+  const [textRef, textInView] = useInView();
+  const [illustrationRef, illustrationInView] = useInView();
+
+  return (
+    <div className={`grid md:grid-cols-2 gap-16 items-center mb-32 last:mb-0 ${layoutRight ? '' : 'md:grid-flow-dense'}`}>
+      {/* Text Content */}
+      <div
+        ref={textRef}
+        className={`space-y-6 ${layoutRight ? 'md:order-1' : 'md:order-2 md:col-start-2'} ${
+          textInView ? (layoutRight ? 'animate-on-scroll-left visible' : 'animate-on-scroll-right visible') : 
+          (layoutRight ? 'animate-on-scroll-left' : 'animate-on-scroll-right')
+        }`}
+      >
+        <h3 className="text-3xl font-bold leading-tight" style={{ color: '#F8FAFF' }}>
+          {title}
+        </h3>
+        <p className="text-lg leading-relaxed" style={{ color: 'rgba(248, 250, 255, 0.7)' }}>
+          {description}
+        </p>
+      </div>
+
+      {/* Illustration */}
+      <div
+        ref={illustrationRef}
+        className={`flex ${layoutRight ? 'md:order-2 justify-center md:justify-end' : 'md:order-1 md:col-start-1 justify-center md:justify-start'} ${
+          illustrationInView ? (layoutRight ? 'animate-on-scroll-right visible' : 'animate-on-scroll-left visible') : 
+          (layoutRight ? 'animate-on-scroll-right' : 'animate-on-scroll-left')
+        }`}
+      >
+        {illustration}
+      </div>
     </div>
   );
 }
