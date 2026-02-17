@@ -72,12 +72,26 @@ export default function Home() {
           <div className="text-2xl font-bold" style={{ color: '#F8FAFF' }}>
             App<span style={{ color: '#00b4d8' }}>Crawler</span>
           </div>
-          <div className="flex gap-8 text-sm font-medium">
+          <div className="flex gap-8 items-center text-sm font-medium">
             <a href="#features" className="hover:opacity-70 transition-colors" style={{ color: '#F8FAFF' }}>
               Features
             </a>
             <a href="#faq" className="hover:opacity-70 transition-colors" style={{ color: '#F8FAFF' }}>
               FAQ
+            </a>
+            <a
+              href="https://gumroad.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-5 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
+              style={{ 
+                backgroundColor: '#0077b6',
+                color: '#F8FAFF'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#0096c7'}
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#0077b6'}
+            >
+              Get AppCrawler
             </a>
           </div>
         </div>
@@ -96,6 +110,7 @@ export default function Home() {
               <p className="text-lg max-w-lg" style={{ color: 'rgba(248, 250, 255, 0.7)' }}>
                 Analyze your complete Android codebase instantly. Get comprehensive app context in tabular, graph, and mermaid diagram formats—right inside Android Studio.
               </p>
+              
               
               {/* CTA with direct link */}
               <div>

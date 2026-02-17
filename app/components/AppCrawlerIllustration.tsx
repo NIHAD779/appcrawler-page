@@ -258,15 +258,6 @@ export default function AppCrawlerIllustration() {
         </text>
       </g>
 
-      {/* Timer/Progress Indicator */}
-      <g id="timer">
-        <circle cx="300" cy="30" r="20" fill="none" stroke="#0D2850" strokeWidth="3"/>
-        <circle cx="300" cy="30" r="20" fill="none" stroke="#00b4d8" strokeWidth="3" 
-          strokeDasharray="126" strokeDashoffset="126" transform="rotate(-90 300 30)" filter="url(#glow)">
-          <animate attributeName="strokeDashoffset" from="126" to="0" dur="6s" repeatCount="indefinite"/>
-        </circle>
-        <text x="300" y="36" textAnchor="middle" fill="#48cae4" fontSize="11" fontWeight="bold">&lt;1m</text>
-      </g>
 
       {/* Sparkle particles for visual appeal */}
       <g className="sparkles">

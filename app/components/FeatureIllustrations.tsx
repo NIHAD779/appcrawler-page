@@ -128,10 +128,12 @@ export function OutputFormatsIllustration() {
       <rect x="30" y="40" width="240" height="220" rx="12" 
         fill="#0D2850" stroke="#0077b6" strokeWidth="2" opacity="0.5"/>
 
-      {/* Table View - visible first */}
-      <g id="table-view" opacity="1">
-        <animate attributeName="opacity" values="1;1;0;0;0;0;1;1" 
-          dur="9s" repeatCount="indefinite"/>
+      {/* Table View - visible first, 3s show + 0.5s fade out + 3s hidden + 0.5s hidden + 3s hidden + 0.5s fade in = ~10.5s */}
+      <g id="table-view">
+        <animate attributeName="opacity" 
+          values="1;1;1;0;0;0;0;0;0;0;0;1" 
+          keyTimes="0;0.26;0.3;0.35;0.36;0.6;0.64;0.65;0.66;0.9;0.95;1"
+          dur="10.5s" repeatCount="indefinite"/>
         
         {/* Table header */}
         <rect x="50" y="60" width="200" height="25" fill="#0077b6" opacity="0.3"/>
@@ -162,9 +164,11 @@ export function OutputFormatsIllustration() {
       </g>
 
       {/* Graph View - visible second */}
-      <g id="graph-view" opacity="0">
-        <animate attributeName="opacity" values="0;0;0;1;1;0;0;0;0" 
-          dur="9s" repeatCount="indefinite"/>
+      <g id="graph-view">
+        <animate attributeName="opacity" 
+          values="0;0;0;0;1;1;1;0;0;0;0;0" 
+          keyTimes="0;0.3;0.33;0.35;0.36;0.6;0.64;0.65;0.66;0.9;0.95;1"
+          dur="10.5s" repeatCount="indefinite"/>
         
         {/* Nodes */}
         <circle cx="150" cy="90" r="18" fill="#0077b6" stroke="#48cae4" strokeWidth="2"/>
@@ -188,9 +192,11 @@ export function OutputFormatsIllustration() {
       </g>
 
       {/* Mermaid View - visible third */}
-      <g id="mermaid-view" opacity="0">
-        <animate attributeName="opacity" values="0;0;0;0;0;0;1;1;1" 
-          dur="9s" repeatCount="indefinite"/>
+      <g id="mermaid-view">
+        <animate attributeName="opacity" 
+          values="0;0;0;0;0;0;0;0;1;1;1;0" 
+          keyTimes="0;0.3;0.33;0.35;0.36;0.6;0.64;0.65;0.66;0.9;0.95;1"
+          dur="10.5s" repeatCount="indefinite"/>
         
         {/* Flowchart boxes */}
         <rect x="90" y="65" width="120" height="30" rx="4" 
@@ -220,25 +226,6 @@ export function OutputFormatsIllustration() {
         <rect x="235" y="140" width="25" height="30" rx="12" 
           fill="none" stroke="#00b4d8" strokeWidth="2"/>
       </g>
-
-      {/* Label */}
-      <text x="150" y="245" textAnchor="middle" fill="#48cae4" fontSize="11" fontWeight="500">
-        <tspan opacity="1">
-          <animate attributeName="opacity" values="1;1;0;0;0;0;0;0;1" 
-            dur="9s" repeatCount="indefinite"/>
-          Table
-        </tspan>
-        <tspan opacity="0">
-          <animate attributeName="opacity" values="0;0;0;1;1;0;0;0;0" 
-            dur="9s" repeatCount="indefinite"/>
-          Graph
-        </tspan>
-        <tspan opacity="0">
-          <animate attributeName="opacity" values="0;0;0;0;0;0;1;1;1" 
-            dur="9s" repeatCount="indefinite"/>
-          Mermaid
-        </tspan>
-      </text>
     </svg>
   );
 }
