@@ -36,6 +36,7 @@ function useInView(options = {}) {
 
 export default function Home() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const faqs = [
     {
@@ -72,7 +73,9 @@ export default function Home() {
           <div className="text-2xl font-bold" style={{ color: '#F8FAFF' }}>
             App<span style={{ color: '#00b4d8' }}>Crawler</span>
           </div>
-          <div className="flex gap-8 items-center text-sm font-medium">
+          
+          {/* Desktop nav */}
+          <div className="hidden md:flex gap-8 items-center text-sm font-medium">
             <a href="#features" className="hover:opacity-70 transition-colors" style={{ color: '#F8FAFF' }}>
               Features
             </a>
@@ -94,20 +97,77 @@ export default function Home() {
               Get AppCrawler
             </a>
           </div>
+
+          {/* Mobile hamburger */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5"
+            aria-label="Toggle menu"
+          >
+            <span 
+              className={`block w-6 h-0.5 transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}
+              style={{ backgroundColor: '#F8FAFF' }}
+            />
+            <span 
+              className={`block w-6 h-0.5 transition-all duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`}
+              style={{ backgroundColor: '#F8FAFF' }}
+            />
+            <span 
+              className={`block w-6 h-0.5 transition-all duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}
+              style={{ backgroundColor: '#F8FAFF' }}
+            />
+          </button>
+        </div>
+
+        {/* Mobile menu */}
+        <div 
+          className={`md:hidden overflow-hidden transition-all duration-300 ${mobileMenuOpen ? 'max-h-64' : 'max-h-0'}`}
+          style={{ backgroundColor: 'rgba(10, 31, 68, 0.95)' }}
+        >
+          <div className="px-6 py-4 flex flex-col gap-4">
+            <a 
+              href="#features" 
+              className="hover:opacity-70 transition-colors py-2 text-sm font-medium"
+              style={{ color: '#F8FAFF' }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Features
+            </a>
+            <a 
+              href="#faq" 
+              className="hover:opacity-70 transition-colors py-2 text-sm font-medium"
+              style={{ color: '#F8FAFF' }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              FAQ
+            </a>
+            <a
+              href="https://gumroad.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-5 py-3 rounded-full font-semibold transition-all duration-300 text-center text-sm"
+              style={{ 
+                backgroundColor: '#0077b6',
+                color: '#F8FAFF'
+              }}
+            >
+              Get AppCrawler
+            </a>
+          </div>
         </div>
       </nav>
 
       {/* Hero Section */}
       <section className="pt-32 pb-24 md:pt-40 md:pb-32 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
             {/* Left: Text + CTA */}
-            <div className="space-y-8">
-              <h1 className="text-5xl md:text-6xl font-bold leading-tight" style={{ color: '#F8FAFF' }}>
+            <div className="space-y-8 text-center md:text-left">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight" style={{ color: '#F8FAFF' }}>
                 Understand Your Entire App's Context
                 <span className="block mt-2" style={{ color: '#48cae4' }}>In Minutes</span>
               </h1>
-              <p className="text-lg max-w-lg" style={{ color: 'rgba(248, 250, 255, 0.7)' }}>
+              <p className="text-base md:text-lg max-w-lg mx-auto md:mx-0" style={{ color: 'rgba(248, 250, 255, 0.7)' }}>
                 Analyze your complete Android codebase instantly. Get comprehensive app context in tabular, graph, and mermaid diagram formats—right inside Android Studio.
               </p>
               
@@ -118,7 +178,7 @@ export default function Home() {
                   href="https://gumroad.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105"
+                  className="inline-block px-8 py-4 rounded-full text-base md:text-lg font-semibold transition-all duration-300 transform hover:scale-105"
                   style={{ 
                     backgroundColor: '#0077b6',
                     color: '#F8FAFF'
@@ -142,7 +202,7 @@ export default function Home() {
       {/* Features Section - Narrative Layout */}
       <section id="features" className="py-24 md:py-32 px-6" style={{ backgroundColor: '#0D2850' }}>
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-24" style={{ color: '#F8FAFF' }}>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 md:mb-24" style={{ color: '#F8FAFF' }}>
             Everything you need to understand your app
           </h2>
           
@@ -175,7 +235,7 @@ export default function Home() {
       {/* FAQ Section */}
       <section id="faq" className="py-24 md:py-32 px-6">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16" style={{ color: '#F8FAFF' }}>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 md:mb-16" style={{ color: '#F8FAFF' }}>
             Frequently Asked Questions
           </h2>
           
@@ -190,7 +250,7 @@ export default function Home() {
                   onClick={() => setActiveFaq(activeFaq === index ? null : index)}
                   className="w-full px-6 py-5 flex items-center justify-between text-left"
                 >
-                  <span className="font-semibold text-lg pr-4" style={{ color: '#F8FAFF' }}>
+                  <span className="font-semibold text-base md:text-lg pr-4" style={{ color: '#F8FAFF' }}>
                     {faq.question}
                   </span>
                   <svg
@@ -213,7 +273,7 @@ export default function Home() {
                     opacity: activeFaq === index ? 1 : 0
                   }}
                 >
-                  <div className="px-6 pb-5 leading-relaxed" style={{ color: 'rgba(248, 250, 255, 0.7)' }}>
+                  <div className="px-6 pb-5 text-sm md:text-base leading-relaxed" style={{ color: 'rgba(248, 250, 255, 0.7)' }}>
                     {faq.answer}
                   </div>
                 </div>
@@ -226,8 +286,8 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-12 px-6" style={{ backgroundColor: '#F8FAFF' }}>
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row items-start justify-between gap-12">
-            <div className="flex-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <div>
               <div className="text-2xl font-bold mb-4" style={{ color: '#0A1F44' }}>
                 App<span style={{ color: '#0077b6' }}>Crawler</span>
               </div>
@@ -236,7 +296,7 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="flex-1">
+            <div>
               <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider" style={{ color: '#0A1F44' }}>
                 Also Available As
               </h4>
@@ -256,7 +316,7 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="flex-1">
+            <div>
               <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider" style={{ color: '#0A1F44' }}>
                 Links
               </h4>
@@ -294,19 +354,19 @@ function FeatureSection({ title, description, illustration, layoutRight }: {
   const [illustrationRef, illustrationInView] = useInView();
 
   return (
-    <div className={`grid md:grid-cols-2 gap-16 items-center mb-32 last:mb-0 ${layoutRight ? '' : 'md:grid-flow-dense'}`}>
+    <div className={`grid md:grid-cols-2 gap-8 md:gap-16 items-center mb-16 md:mb-32 last:mb-0 ${layoutRight ? '' : 'md:grid-flow-dense'}`}>
       {/* Text Content */}
       <div
         ref={textRef}
-        className={`space-y-6 ${layoutRight ? 'md:order-1' : 'md:order-2 md:col-start-2'} ${
+        className={`space-y-4 md:space-y-6 ${layoutRight ? 'md:order-1' : 'md:order-2 md:col-start-2'} ${
           textInView ? (layoutRight ? 'animate-on-scroll-left visible' : 'animate-on-scroll-right visible') : 
           (layoutRight ? 'animate-on-scroll-left' : 'animate-on-scroll-right')
         }`}
       >
-        <h3 className="text-3xl font-bold leading-tight" style={{ color: '#F8FAFF' }}>
+        <h3 className="text-2xl md:text-3xl font-bold leading-tight" style={{ color: '#F8FAFF' }}>
           {title}
         </h3>
-        <p className="text-lg leading-relaxed" style={{ color: 'rgba(248, 250, 255, 0.7)' }}>
+        <p className="text-base md:text-lg leading-relaxed" style={{ color: 'rgba(248, 250, 255, 0.7)' }}>
           {description}
         </p>
       </div>

@@ -5,7 +5,7 @@ export function CodebaseAnalysisIllustration() {
       viewBox="0 0 300 300"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="w-full h-auto max-w-sm"
+      className="w-64 sm:w-full h-auto max-w-sm"
     >
       <defs>
         <linearGradient id="sparkleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -122,7 +122,7 @@ export function OutputFormatsIllustration() {
       viewBox="0 0 300 300"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="w-full h-auto max-w-sm"
+      className="w-64 sm:w-full h-auto max-w-sm"
     >
       {/* Container */}
       <rect x="30" y="40" width="240" height="220" rx="12" 
@@ -237,7 +237,7 @@ export function IDEIntegrationIllustration() {
       viewBox="0 0 300 300"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="w-full h-auto max-w-sm"
+      className="w-64 sm:w-full h-auto max-w-sm"
     >
       {/* IDE Window */}
       <rect x="20" y="40" width="260" height="220" rx="8" 

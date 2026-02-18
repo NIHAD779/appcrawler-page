@@ -4,7 +4,7 @@ export default function AppCrawlerIllustration() {
       viewBox="0 0 600 400"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="w-full h-auto max-w-2xl"
+      className="w-full h-auto max-w-xs sm:max-w-md md:max-w-2xl"
     >
       <defs>
         <linearGradient id="scanGradient" x1="0%" y1="0%" x2="0%" y2="100%">
