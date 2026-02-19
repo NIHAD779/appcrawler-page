@@ -52,8 +52,8 @@ export default function Home() {
       answer: "Your code is analyzed using OpenAI's API to provide intelligent insights. We process your code securely and do not store it permanently. All analysis happens in real-time and results are delivered directly to your IDE."
     },
     {
-      question: "Is AppCrawler free?",
-      answer: "AppCrawler offers a free trial with full features. After the trial, you can purchase a license for continued use. Check our pricing on Gumroad for current offers."
+      question: "How much does AppCrawler cost?",
+      answer: "AppCrawler offers Pro and Team plans starting at $29/mo. Check our pricing section or visit Gumroad for current offers and details."
     },
     {
       question: "What types of app context can AppCrawler analyze?",
@@ -212,11 +212,15 @@ export default function Home() {
         </div>
 
         {/* Scroll Hint */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
+        <a
+          href="#features"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow cursor-pointer hover:opacity-80 transition-opacity"
+          aria-label="Scroll to features"
+        >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M7 10L12 15L17 10" stroke="#48cae4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-        </div>
+        </a>
       </section>
 
       {/* Problem / Empathy Section */}
@@ -347,23 +351,7 @@ export default function Home() {
             Choose the plan that fits your needs. All plans include access to our powerful analysis engine.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8 items-center">
-            {/* Starter Tier */}
-            <PricingCard
-              name="Starter"
-              price="Free"
-              period=""
-              features={[
-                "1 project",
-                "Basic analysis",
-                "Tabular output only",
-                "Community support"
-              ]}
-              ctaText="Get Started"
-              ctaLink="https://gumroad.com/"
-              highlighted={false}
-            />
-
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center max-w-4xl mx-auto">
             {/* Pro Tier - Recommended */}
             <PricingCard
               name="Pro"
@@ -521,7 +509,7 @@ function FeatureSection({ title, description, illustration, layoutRight }: {
   const [illustrationRef, illustrationInView] = useInView();
 
   return (
-    <div className={`grid md:grid-cols-2 gap-8 md:gap-16 items-center mb-16 md:mb-32 last:mb-0 ${layoutRight ? '' : 'md:grid-flow-dense'}`}>
+    <div className={`grid md:grid-cols-2 gap-8 md:gap-16 items-center ${layoutRight ? '' : 'md:grid-flow-dense'}`}>
       {/* Text Content */}
       <div
         ref={textRef}
