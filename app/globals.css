@@ -154,6 +154,24 @@ body {
   }
 }
 
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@keyframes ctaGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 119, 182, 0.5), 0 0 40px rgba(0, 119, 182, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 119, 182, 0.7), 0 0 60px rgba(0, 119, 182, 0.3);
+  }
+}
+
 /* Utility Classes */
 
 .animate-fade-in-up {
@@ -166,6 +184,14 @@ body {
 
 .animate-fade-in-right {
   animation: fadeInRight 0.8s ease-out forwards;
+}
+
+.animate-bounce-slow {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.cta-button:hover {
+  animation: ctaGlow 2s ease-in-out infinite;
 }
 
 .animate-on-scroll {

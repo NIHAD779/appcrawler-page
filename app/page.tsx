@@ -79,6 +79,9 @@ export default function Home() {
             <a href="#features" className="hover:opacity-70 transition-colors" style={{ color: '#F8FAFF' }}>
               Features
             </a>
+            <a href="#pricing" className="hover:opacity-70 transition-colors" style={{ color: '#F8FAFF' }}>
+              Pricing
+            </a>
             <a href="#faq" className="hover:opacity-70 transition-colors" style={{ color: '#F8FAFF' }}>
               FAQ
             </a>
@@ -134,6 +137,14 @@ export default function Home() {
               Features
             </a>
             <a 
+              href="#pricing" 
+              className="hover:opacity-70 transition-colors py-2 text-sm font-medium"
+              style={{ color: '#F8FAFF' }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Pricing
+            </a>
+            <a 
               href="#faq" 
               className="hover:opacity-70 transition-colors py-2 text-sm font-medium"
               style={{ color: '#F8FAFF' }}
@@ -158,7 +169,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-24 md:pt-40 md:pb-32 px-6">
+      <section className="pt-32 pb-24 md:pt-40 md:pb-32 px-6 relative">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
             {/* Left: Text + CTA */}
@@ -178,14 +189,16 @@ export default function Home() {
                   href="https://gumroad.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block px-8 py-4 rounded-full text-base md:text-lg font-semibold transition-all duration-300 transform hover:scale-105"
+                  className="cta-button inline-flex items-center gap-3 px-8 py-4 rounded-full text-base md:text-lg font-semibold transition-all duration-300 transform hover:scale-105"
                   style={{ 
                     backgroundColor: '#0077b6',
-                    color: '#F8FAFF'
+                    color: '#F8FAFF',
+                    boxShadow: '0 0 20px rgba(0, 119, 182, 0.5), 0 0 40px rgba(0, 119, 182, 0.2)'
                   }}
                   onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#0096c7'}
                   onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#0077b6'}
                 >
+ 
                   Get AppCrawler Now
                 </a>
               </div>
@@ -194,6 +207,98 @@ export default function Home() {
             {/* Right: Illustration */}
             <div className="flex justify-center md:justify-end">
               <AppCrawlerIllustration />
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll Hint */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 10L12 15L17 10" stroke="#48cae4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
+      </section>
+
+      {/* Problem / Empathy Section */}
+      <section className="py-24 md:py-32 px-6" style={{ backgroundColor: '#0D2850' }}>
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16" style={{ color: '#F8FAFF' }}>
+            Tired of the Struggle?
+          </h2>
+          
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+            {/* Pain Point 1 */}
+            <ProblemCard
+              icon={
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M24 4L4 14L24 24L44 14L24 4Z" stroke="#48cae4" strokeWidth="2" strokeLinejoin="round"/>
+                  <path d="M4 24L24 34L44 24" stroke="#48cae4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M4 34L24 44L44 34" stroke="#0096c7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              }
+              title="Manually tracing navigation flows across 200+ files?"
+              description="Hours wasted jumping between Activities, Fragments, and navigation graphs trying to understand how your app actually flows."
+            />
+
+            {/* Pain Point 2 */}
+            <ProblemCard
+              icon={
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 8H36V40H12V8Z" stroke="#48cae4" strokeWidth="2" strokeLinejoin="round"/>
+                  <path d="M18 16H30M18 24H30M18 32H26" stroke="#0096c7" strokeWidth="2" strokeLinecap="round"/>
+                  <path d="M8 12L16 4M8 20L16 12M8 28L16 20" stroke="#ff5f56" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+              }
+              title="Outdated architecture docs that nobody trusts?"
+              description="Documentation becomes stale the moment it's written. Your team relies on tribal knowledge instead of reliable sources."
+            />
+
+            {/* Pain Point 3 */}
+            <ProblemCard
+              icon={
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="24" cy="14" r="6" stroke="#48cae4" strokeWidth="2"/>
+                  <path d="M12 38V34C12 30.686 14.686 28 18 28H30C33.314 28 36 30.686 36 34V38" stroke="#48cae4" strokeWidth="2" strokeLinecap="round"/>
+                  <path d="M32 8L40 16M40 8L32 16" stroke="#ff5f56" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+              }
+              title="Onboarding new devs takes weeks, not days?"
+              description="New team members struggle to grasp the big picture. They make changes blindly, breaking navigation flows they didn't know existed."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Demo / Video Placeholder Section */}
+      <section className="py-24 md:py-32 px-6">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12" style={{ color: '#F8FAFF' }}>
+            See AppCrawler in Action
+          </h2>
+          
+          <div className="relative rounded-2xl overflow-hidden border-2" style={{ 
+            backgroundColor: '#0D2850', 
+            borderColor: 'rgba(0, 119, 182, 0.3)',
+            paddingBottom: '56.25%'
+          }}>
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
+              {/* Play Button Icon */}
+              <div className="w-20 h-20 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 cursor-pointer"
+                style={{ 
+                  backgroundColor: 'rgba(0, 119, 182, 0.2)',
+                  border: '3px solid #00b4d8'
+                }}>
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10 8L24 16L10 24V8Z" fill="#48cae4"/>
+                </svg>
+              </div>
+              
+              <p className="text-lg md:text-xl font-medium" style={{ color: '#48cae4' }}>
+                Demo Coming Soon
+              </p>
+              <p className="text-sm md:text-base" style={{ color: 'rgba(248, 250, 255, 0.5)' }}>
+                Watch how AppCrawler analyzes your entire codebase in seconds
+              </p>
             </div>
           </div>
         </div>
@@ -229,6 +334,85 @@ export default function Home() {
             illustration={<IDEIntegrationIllustration />}
             layoutRight={true}
           />
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section id="pricing" className="py-24 md:py-32 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12" style={{ color: '#F8FAFF' }}>
+            Simple, Transparent Pricing
+          </h2>
+          <p className="text-base md:text-lg text-center mb-12 md:mb-16 max-w-2xl mx-auto" style={{ color: 'rgba(248, 250, 255, 0.7)' }}>
+            Choose the plan that fits your needs. All plans include access to our powerful analysis engine.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 items-center">
+            {/* Starter Tier */}
+            <PricingCard
+              name="Starter"
+              price="Free"
+              period=""
+              features={[
+                "1 project",
+                "Basic analysis",
+                "Tabular output only",
+                "Community support"
+              ]}
+              ctaText="Get Started"
+              ctaLink="https://gumroad.com/"
+              highlighted={false}
+            />
+
+            {/* Pro Tier - Recommended */}
+            <PricingCard
+              name="Pro"
+              price="$29"
+              period="/mo"
+              features={[
+                "Unlimited projects",
+                "All output formats",
+                "Advanced analysis",
+                "Priority support",
+                "Export capabilities"
+              ]}
+              ctaText="Get Pro"
+              ctaLink="https://gumroad.com/"
+              highlighted={true}
+              badge="Recommended"
+            />
+
+            {/* Team Tier */}
+            <PricingCard
+              name="Team"
+              price="$79"
+              period="/mo"
+              features={[
+                "Everything in Pro",
+                "Team sharing",
+                "API access",
+                "SSO authentication",
+                "Dedicated support"
+              ]}
+              ctaText="Get Team"
+              ctaLink="https://gumroad.com/"
+              highlighted={false}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Lead Capture / Email Signup Section */}
+      <section className="py-24 md:py-32 px-6" style={{ backgroundColor: '#0D2850' }}>
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4" style={{ color: '#F8FAFF' }}>
+            Not ready yet? Stay in the loop.
+          </h2>
+          <p className="text-base md:text-lg mb-8 md:mb-10" style={{ color: 'rgba(248, 250, 255, 0.7)' }}>
+            Get notified about updates, tips, and early-bird offers.
+          </p>
+
+          <EmailSignupForm />
         </div>
       </section>
 
@@ -286,7 +470,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-12 px-6" style={{ backgroundColor: '#F8FAFF' }}>
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <div className="text-2xl font-bold mb-4" style={{ color: '#0A1F44' }}>
                 App<span style={{ color: '#0077b6' }}>Crawler</span>
@@ -313,23 +497,6 @@ export default function Home() {
                     Integrate app-context analysis via REST API
                   </p>
                 </div>
-              </div>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider" style={{ color: '#0A1F44' }}>
-                Links
-              </h4>
-              <div className="flex flex-col gap-3 text-sm">
-                <a href="#" className="hover:opacity-70 transition-colors" style={{ color: '#0077b6' }}>
-                  GitHub
-                </a>
-                <a href="#" className="hover:opacity-70 transition-colors" style={{ color: '#0077b6' }}>
-                  Twitter
-                </a>
-                <a href="#" className="hover:opacity-70 transition-colors" style={{ color: '#0077b6' }}>
-                  Documentation
-                </a>
               </div>
             </div>
           </div>
@@ -382,5 +549,173 @@ function FeatureSection({ title, description, illustration, layoutRight }: {
         {illustration}
       </div>
     </div>
+  );
+}
+
+// Problem Card Component
+function ProblemCard({ icon, title, description }: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}) {
+  const [ref, inView] = useInView();
+
+  return (
+    <div
+      ref={ref}
+      className={`p-6 rounded-2xl border transition-all duration-300 ${
+        inView ? 'animate-on-scroll visible' : 'animate-on-scroll'
+      }`}
+      style={{ 
+        backgroundColor: '#0A1F44', 
+        borderColor: 'rgba(0, 119, 182, 0.3)'
+      }}
+    >
+      <div className="mb-4 flex justify-center md:justify-start">
+        {icon}
+      </div>
+      <h3 className="text-lg md:text-xl font-bold mb-3" style={{ color: '#F8FAFF' }}>
+        {title}
+      </h3>
+      <p className="text-sm md:text-base leading-relaxed" style={{ color: 'rgba(248, 250, 255, 0.6)' }}>
+        {description}
+      </p>
+    </div>
+  );
+}
+
+// Pricing Card Component
+function PricingCard({ name, price, period, features, ctaText, ctaLink, highlighted, badge }: {
+  name: string;
+  price: string;
+  period: string;
+  features: string[];
+  ctaText: string;
+  ctaLink: string;
+  highlighted: boolean;
+  badge?: string;
+}) {
+  const [ref, inView] = useInView();
+
+  return (
+    <div
+      ref={ref}
+      className={`relative p-8 rounded-2xl border-2 transition-all duration-300 ${
+        highlighted ? 'md:scale-105' : ''
+      } ${inView ? 'animate-on-scroll visible' : 'animate-on-scroll'}`}
+      style={{ 
+        backgroundColor: '#0D2850', 
+        borderColor: highlighted ? '#00b4d8' : 'rgba(0, 119, 182, 0.3)'
+      }}
+    >
+      {badge && (
+        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold"
+          style={{ backgroundColor: '#00b4d8', color: '#0A1F44' }}>
+          {badge}
+        </div>
+      )}
+
+      <div className="text-center mb-6">
+        <h3 className="text-xl md:text-2xl font-bold mb-4" style={{ color: '#F8FAFF' }}>
+          {name}
+        </h3>
+        <div className="flex items-baseline justify-center gap-1">
+          <span className="text-4xl md:text-5xl font-bold" style={{ color: '#48cae4' }}>
+            {price}
+          </span>
+          {period && (
+            <span className="text-lg" style={{ color: 'rgba(248, 250, 255, 0.6)' }}>
+              {period}
+            </span>
+          )}
+        </div>
+      </div>
+
+      <ul className="space-y-3 mb-8">
+        {features.map((feature, index) => (
+          <li key={index} className="flex items-start gap-3">
+            <svg className="w-5 h-5 shrink-0 mt-0.5" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill="#00b4d8"/>
+            </svg>
+            <span className="text-sm md:text-base" style={{ color: 'rgba(248, 250, 255, 0.8)' }}>
+              {feature}
+            </span>
+          </li>
+        ))}
+      </ul>
+
+      <a
+        href={ctaLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block w-full px-6 py-3 rounded-full text-center font-semibold transition-all duration-300 transform hover:scale-105"
+        style={{ 
+          backgroundColor: highlighted ? '#0077b6' : 'rgba(0, 119, 182, 0.2)',
+          color: '#F8FAFF',
+          border: highlighted ? 'none' : '1px solid rgba(0, 119, 182, 0.5)'
+        }}
+      >
+        {ctaText}
+      </a>
+    </div>
+  );
+}
+
+// Email Signup Form Component
+function EmailSignupForm() {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email && email.includes('@')) {
+      setStatus('success');
+      setEmail('');
+      setTimeout(() => setStatus('idle'), 3000);
+    } else {
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 3000);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+      <div className="flex flex-col sm:flex-row gap-3">
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="your.email@example.com"
+          className="flex-1 px-5 py-3 rounded-full text-base focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all"
+          style={{ 
+            backgroundColor: '#0A1F44',
+            color: '#F8FAFF',
+            border: '1px solid rgba(0, 119, 182, 0.3)'
+          }}
+          required
+        />
+        <button
+          type="submit"
+          className="px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 whitespace-nowrap"
+          style={{ 
+            backgroundColor: '#0077b6',
+            color: '#F8FAFF'
+          }}
+        >
+          Subscribe
+        </button>
+      </div>
+
+      {status === 'success' && (
+        <p className="mt-4 text-sm" style={{ color: '#27c93f' }}>
+          Thanks for subscribing! Check your inbox.
+        </p>
+      )}
+      {status === 'error' && (
+        <p className="mt-4 text-sm" style={{ color: '#ff5f56' }}>
+          Please enter a valid email address.
+        </p>
+      )}
+    </form>
   );
 }
