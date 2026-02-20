@@ -213,14 +213,78 @@ export default function Home() {
 
         {/* Scroll Hint */}
         <a
-          href="#features"
+          href="#testimonials"
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow cursor-pointer hover:opacity-80 transition-opacity"
-          aria-label="Scroll to features"
+          aria-label="Scroll to next section"
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M7 10L12 15L17 10" stroke="#48cae4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </a>
+      </section>
+
+      {/* Testimonials Section */}
+      <section id="testimonials" className="py-24 md:py-32 px-6" style={{ backgroundColor: '#0D2850' }}>
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16" style={{ color: '#F8FAFF' }}>
+            Trusted by Android Developers
+          </h2>
+          
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+            <TestimonialCard
+              quote="AppCrawler saved me hours of digging through code. I can now understand any Android project in minutes instead of days."
+              author="Sarah Chen"
+              role="Senior Android Developer"
+            />
+            
+            <TestimonialCard
+              quote="The navigation flow visualizations are incredible. Finally, a tool that makes onboarding new team members painless."
+              author="Marcus Johnson"
+              role="Tech Lead, Mobile Team"
+            />
+            
+            <TestimonialCard
+              quote="Game changer for legacy codebases. I can quickly map out the entire app structure without manually tracing through hundreds of files."
+              author="Priya Sharma"
+              role="Android Architect"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Demo / Video Placeholder Section */}
+      <section className="py-24 md:py-32 px-6">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12" style={{ color: '#F8FAFF' }}>
+            See AppCrawler in Action
+          </h2>
+          
+          <div className="relative rounded-2xl overflow-hidden border-2" style={{ 
+            backgroundColor: '#0D2850', 
+            borderColor: 'rgba(0, 119, 182, 0.3)',
+            paddingBottom: '56.25%'
+          }}>
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
+              {/* Play Button Icon */}
+              <div className="w-20 h-20 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 cursor-pointer"
+                style={{ 
+                  backgroundColor: 'rgba(0, 119, 182, 0.2)',
+                  border: '3px solid #00b4d8'
+                }}>
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10 8L24 16L10 24V8Z" fill="#48cae4"/>
+                </svg>
+              </div>
+              
+              <p className="text-lg md:text-xl font-medium" style={{ color: '#48cae4' }}>
+                Demo Coming Soon
+              </p>
+              <p className="text-sm md:text-base" style={{ color: 'rgba(248, 250, 255, 0.5)' }}>
+                Watch how AppCrawler analyzes your entire codebase in seconds
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Problem / Empathy Section */}
@@ -269,41 +333,6 @@ export default function Home() {
               title="Onboarding new devs takes weeks, not days?"
               description="New team members struggle to grasp the big picture. They make changes blindly, breaking navigation flows they didn't know existed."
             />
-          </div>
-        </div>
-      </section>
-
-      {/* Demo / Video Placeholder Section */}
-      <section className="py-24 md:py-32 px-6">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12" style={{ color: '#F8FAFF' }}>
-            See AppCrawler in Action
-          </h2>
-          
-          <div className="relative rounded-2xl overflow-hidden border-2" style={{ 
-            backgroundColor: '#0D2850', 
-            borderColor: 'rgba(0, 119, 182, 0.3)',
-            paddingBottom: '56.25%'
-          }}>
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-              {/* Play Button Icon */}
-              <div className="w-20 h-20 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 cursor-pointer"
-                style={{ 
-                  backgroundColor: 'rgba(0, 119, 182, 0.2)',
-                  border: '3px solid #00b4d8'
-                }}>
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M10 8L24 16L10 24V8Z" fill="#48cae4"/>
-                </svg>
-              </div>
-              
-              <p className="text-lg md:text-xl font-medium" style={{ color: '#48cae4' }}>
-                Demo Coming Soon
-              </p>
-              <p className="text-sm md:text-base" style={{ color: 'rgba(248, 250, 255, 0.5)' }}>
-                Watch how AppCrawler analyzes your entire codebase in seconds
-              </p>
-            </div>
           </div>
         </div>
       </section>
@@ -535,6 +564,45 @@ function FeatureSection({ title, description, illustration, layoutRight }: {
         }`}
       >
         {illustration}
+      </div>
+    </div>
+  );
+}
+
+// Testimonial Card Component
+function TestimonialCard({ quote, author, role }: {
+  quote: string;
+  author: string;
+  role: string;
+}) {
+  const [ref, inView] = useInView();
+
+  return (
+    <div
+      ref={ref}
+      className={`p-6 md:p-8 rounded-2xl border transition-all duration-300 ${
+        inView ? 'animate-on-scroll visible' : 'animate-on-scroll'
+      }`}
+      style={{ 
+        backgroundColor: '#0D2850', 
+        borderColor: 'rgba(0, 119, 182, 0.3)'
+      }}
+    >
+      <p className="text-base md:text-lg italic mb-6 leading-relaxed" style={{ color: 'rgba(248, 250, 255, 0.9)' }}>
+        &ldquo;{quote}&rdquo;
+      </p>
+      <div className="flex items-center gap-3">
+        <div className="w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold" style={{ backgroundColor: '#0077b6', color: '#F8FAFF' }}>
+          {author.charAt(0)}
+        </div>
+        <div>
+          <div className="font-semibold" style={{ color: '#F8FAFF' }}>
+            {author}
+          </div>
+          <div className="text-sm" style={{ color: 'rgba(248, 250, 255, 0.6)' }}>
+            {role}
+          </div>
+        </div>
       </div>
     </div>
   );
