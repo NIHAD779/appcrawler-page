@@ -720,17 +720,42 @@ function PricingCard({ name, price, period, features, ctaText, ctaLink, highligh
 // Email Signup Form Component
 function EmailSignupForm() {
   const [email, setEmail] = useState('');
-  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error' | 'conflict'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email && email.includes('@')) {
-      setStatus('success');
-      setEmail('');
-      setTimeout(() => setStatus('idle'), 3000);
-    } else {
+    setStatus('loading');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus('success');
+        setEmail('');
+        setTimeout(() => setStatus('idle'), 5000);
+      } else if (response.status === 409) {
+        setStatus('conflict');
+        setErrorMessage(data.error || 'This email is already subscribed');
+        setTimeout(() => setStatus('idle'), 5000);
+      } else {
+        setStatus('error');
+        setErrorMessage(data.error || 'Something went wrong. Please try again.');
+        setTimeout(() => setStatus('idle'), 5000);
+      }
+    } catch (error) {
       setStatus('error');
-      setTimeout(() => setStatus('idle'), 3000);
+      setErrorMessage('Network error. Please check your connection and try again.');
+      setTimeout(() => setStatus('idle'), 5000);
     }
   };
 
@@ -749,16 +774,18 @@ function EmailSignupForm() {
             border: '1px solid rgba(0, 119, 182, 0.3)'
           }}
           required
+          disabled={status === 'loading'}
         />
         <button
           type="submit"
-          className="px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 whitespace-nowrap"
+          disabled={status === 'loading'}
+          className="px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
           style={{ 
             backgroundColor: '#0077b6',
             color: '#F8FAFF'
           }}
         >
-          Subscribe
+          {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
         </button>
       </div>
 
@@ -767,9 +794,14 @@ function EmailSignupForm() {
           Thanks for subscribing! Check your inbox.
         </p>
       )}
+      {status === 'conflict' && (
+        <p className="mt-4 text-sm" style={{ color: '#ffa500' }}>
+          {errorMessage}
+        </p>
+      )}
       {status === 'error' && (
         <p className="mt-4 text-sm" style={{ color: '#ff5f56' }}>
-          Please enter a valid email address.
+          {errorMessage}
         </p>
       )}
     </form>
