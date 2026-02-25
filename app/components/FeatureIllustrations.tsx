@@ -115,7 +115,7 @@ export function CodebaseAnalysisIllustration() {
   );
 }
 
-// Output Formats Illustration - Morphing between table, graph, mermaid
+// Output Formats Illustration - Morphing between table and graph
 export function OutputFormatsIllustration() {
   return (
     <svg
@@ -128,12 +128,12 @@ export function OutputFormatsIllustration() {
       <rect x="30" y="40" width="240" height="220" rx="12" 
         fill="#0D2850" stroke="#0077b6" strokeWidth="2" opacity="0.5"/>
 
-      {/* Table View - visible first, 3s show + 0.5s fade out + 3s hidden + 0.5s hidden + 3s hidden + 0.5s fade in = ~10.5s */}
+      {/* Table View - visible first, 3.5s show + 0.5s fade out + 3.5s hidden + 0.5s fade in = ~8s */}
       <g id="table-view">
         <animate attributeName="opacity" 
-          values="1;1;1;0;0;0;0;0;0;0;0;1" 
-          keyTimes="0;0.26;0.3;0.35;0.36;0.6;0.64;0.65;0.66;0.9;0.95;1"
-          dur="10.5s" repeatCount="indefinite"/>
+          values="1;1;1;0;0;0;0;0;0;1" 
+          keyTimes="0;0.4;0.43;0.47;0.48;0.9;0.93;0.97;0.98;1"
+          dur="8s" repeatCount="indefinite"/>
         
         {/* Table header */}
         <rect x="50" y="60" width="200" height="25" fill="#0077b6" opacity="0.3"/>
@@ -166,9 +166,9 @@ export function OutputFormatsIllustration() {
       {/* Graph View - visible second */}
       <g id="graph-view">
         <animate attributeName="opacity" 
-          values="0;0;0;0;1;1;1;0;0;0;0;0" 
-          keyTimes="0;0.3;0.33;0.35;0.36;0.6;0.64;0.65;0.66;0.9;0.95;1"
-          dur="10.5s" repeatCount="indefinite"/>
+          values="0;0;0;0;1;1;1;0;0" 
+          keyTimes="0;0.43;0.47;0.48;0.5;0.9;0.93;0.97;1"
+          dur="8s" repeatCount="indefinite"/>
         
         {/* Nodes */}
         <circle cx="150" cy="90" r="18" fill="#0077b6" stroke="#48cae4" strokeWidth="2"/>
@@ -189,42 +189,6 @@ export function OutputFormatsIllustration() {
         <circle cx="200" cy="150" r="5" fill="#F8FAFF"/>
         <circle cx="100" cy="210" r="4" fill="#F8FAFF"/>
         <circle cx="200" cy="210" r="4" fill="#F8FAFF"/>
-      </g>
-
-      {/* Mermaid View - visible third */}
-      <g id="mermaid-view">
-        <animate attributeName="opacity" 
-          values="0;0;0;0;0;0;0;0;1;1;1;0" 
-          keyTimes="0;0.3;0.33;0.35;0.36;0.6;0.64;0.65;0.66;0.9;0.95;1"
-          dur="10.5s" repeatCount="indefinite"/>
-        
-        {/* Flowchart boxes */}
-        <rect x="90" y="65" width="120" height="30" rx="4" 
-          fill="none" stroke="#0077b6" strokeWidth="2"/>
-        <rect x="98" y="74" width="50" height="3" rx="1.5" fill="#48cae4"/>
-        
-        {/* Arrow down */}
-        <line x1="150" y1="95" x2="150" y2="125" stroke="#00b4d8" strokeWidth="2"/>
-        <path d="M 150 125 L 145 118 L 155 118 Z" fill="#00b4d8"/>
-        
-        {/* Decision diamond */}
-        <path d="M 150 130 L 195 155 L 150 180 L 105 155 Z" 
-          fill="none" stroke="#0096c7" strokeWidth="2"/>
-        <rect x="135" y="152" width="30" height="3" rx="1.5" fill="#48cae4"/>
-        
-        {/* Arrow left */}
-        <line x1="105" y1="155" x2="70" y2="155" stroke="#00b4d8" strokeWidth="2"/>
-        <path d="M 70 155 L 77 150 L 77 160 Z" fill="#00b4d8"/>
-        
-        {/* Arrow right */}
-        <line x1="195" y1="155" x2="230" y2="155" stroke="#00b4d8" strokeWidth="2"/>
-        <path d="M 230 155 L 223 150 L 223 160 Z" fill="#00b4d8"/>
-        
-        {/* End boxes */}
-        <rect x="40" y="140" width="25" height="30" rx="12" 
-          fill="none" stroke="#00b4d8" strokeWidth="2"/>
-        <rect x="235" y="140" width="25" height="30" rx="12" 
-          fill="none" stroke="#00b4d8" strokeWidth="2"/>
       </g>
     </svg>
   );

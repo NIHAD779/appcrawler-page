@@ -14,17 +14,17 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "AppCrawler - Android Studio App Context Plugin",
-  description: "Analyze your entire Android codebase and get complete app context in minutes. View your app structure in tabular, graph, and mermaid formats right inside Android Studio.",
+  description: "Analyze your entire Android codebase and get complete app context in minutes. View your app structure in tabular and graph formats right inside Android Studio.",
   openGraph: {
     title: "AppCrawler - Understand Your Entire App in Minutes",
-    description: "Analyze your Android codebase and get complete app context instantly. View your app structure in tabular, graph, and mermaid formats right inside Android Studio.",
+    description: "Analyze your Android codebase and get complete app context instantly. View your app structure in tabular and graph formats right inside Android Studio.",
     images: [{ url: "/og-image.svg", width: 1200, height: 630 }],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "AppCrawler - Android Studio App Context Plugin",
-    description: "Analyze your entire Android codebase and get complete app context in minutes. View your app structure in tabular, graph, and mermaid formats right inside Android Studio.",
+    description: "Analyze your entire Android codebase and get complete app context in minutes. View your app structure in tabular and graph formats right inside Android Studio.",
     images: ["/og-image.svg"],
   },
 };

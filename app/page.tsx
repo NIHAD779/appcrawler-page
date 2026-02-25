@@ -53,7 +53,7 @@ export default function Home() {
     },
     {
       question: "How much does AppCrawler cost?",
-      answer: "AppCrawler offers Pro and Team plans starting at $29/mo. Check our pricing section or visit Gumroad for current offers and details."
+      answer: "AppCrawler is available for a one-time payment of $29 (normally $49). This launch offer includes lifetime access to all features and future updates. No subscriptions or recurring fees."
     },
     {
       question: "What types of app context can AppCrawler analyze?",
@@ -61,7 +61,7 @@ export default function Home() {
     },
     {
       question: "What output formats are available?",
-      answer: "You can view and export your app context in three formats: tabular data for structured analysis, interactive graphs for visual exploration, and mermaid diagrams for documentation and sharing."
+      answer: "You can view and export your app context in two formats: tabular data for structured analysis and interactive graphs for visual exploration."
     }
   ];
 
@@ -179,7 +179,7 @@ export default function Home() {
                 <span className="block mt-2" style={{ color: '#48cae4' }}>In Minutes</span>
               </h1>
               <p className="text-base md:text-lg max-w-lg mx-auto md:mx-0" style={{ color: 'rgba(248, 250, 255, 0.7)' }}>
-                Analyze your complete Android codebase instantly. Get comprehensive app context in tabular, graph, and mermaid diagram formats—right inside Android Studio.
+                Analyze your complete Android codebase instantly. Get comprehensive app context in tabular and graph formats—right inside Android Studio.
               </p>
               
               
@@ -355,7 +355,7 @@ export default function Home() {
           {/* Feature 2: Multiple Output Formats - Text Right, Illustration Left */}
           <FeatureSection
             title="View your app context in any format"
-            description="Switch between tabular data for quick analysis, interactive graphs for visual exploration, or mermaid diagrams for documentation and team collaboration."
+            description="Switch between tabular data for quick analysis or interactive graphs for visual exploration and team collaboration."
             illustration={<OutputFormatsIllustration />}
             layoutRight={false}
           />
@@ -377,43 +377,26 @@ export default function Home() {
             Simple, Transparent Pricing
           </h2>
           <p className="text-base md:text-lg text-center mb-12 md:mb-16 max-w-2xl mx-auto" style={{ color: 'rgba(248, 250, 255, 0.7)' }}>
-            Choose the plan that fits your needs. All plans include access to our powerful analysis engine.
+            One-time purchase. Lifetime access. No subscriptions or recurring fees.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center max-w-4xl mx-auto">
-            {/* Pro Tier - Recommended */}
+          <div className="flex justify-center max-w-md mx-auto">
             <PricingCard
-              name="Pro"
+              name="AppCrawler"
               price="$29"
-              period="/mo"
+              originalPrice="$49"
               features={[
                 "Unlimited projects",
                 "All output formats",
                 "Advanced analysis",
                 "Priority support",
-                "Export capabilities"
+                "Export capabilities",
+                "Lifetime updates"
               ]}
-              ctaText="Get Pro"
+              ctaText="Get AppCrawler Now"
               ctaLink="https://gumroad.com/"
               highlighted={true}
-              badge="Recommended"
-            />
-
-            {/* Team Tier */}
-            <PricingCard
-              name="Team"
-              price="$79"
-              period="/mo"
-              features={[
-                "Everything in Pro",
-                "Team sharing",
-                "API access",
-                "SSO authentication",
-                "Dedicated support"
-              ]}
-              ctaText="Get Team"
-              ctaLink="https://gumroad.com/"
-              highlighted={false}
+              badge="Launch Offer"
             />
           </div>
         </div>
@@ -641,10 +624,10 @@ function ProblemCard({ icon, title, description }: {
 }
 
 // Pricing Card Component
-function PricingCard({ name, price, period, features, ctaText, ctaLink, highlighted, badge }: {
+function PricingCard({ name, price, originalPrice, features, ctaText, ctaLink, highlighted, badge }: {
   name: string;
   price: string;
-  period: string;
+  originalPrice?: string;
   features: string[];
   ctaText: string;
   ctaLink: string;
@@ -675,16 +658,25 @@ function PricingCard({ name, price, period, features, ctaText, ctaLink, highligh
         <h3 className="text-xl md:text-2xl font-bold mb-4" style={{ color: '#F8FAFF' }}>
           {name}
         </h3>
-        <div className="flex items-baseline justify-center gap-1">
+        <div className="flex items-baseline justify-center gap-3 mb-2">
+          {originalPrice && (
+            <span className="text-2xl md:text-3xl font-semibold line-through" style={{ color: 'rgba(248, 250, 255, 0.4)' }}>
+              {originalPrice}
+            </span>
+          )}
           <span className="text-4xl md:text-5xl font-bold" style={{ color: '#48cae4' }}>
             {price}
           </span>
-          {period && (
-            <span className="text-lg" style={{ color: 'rgba(248, 250, 255, 0.6)' }}>
-              {period}
-            </span>
-          )}
         </div>
+        {originalPrice && (
+          <div className="inline-block px-3 py-1 rounded-full text-xs font-semibold" 
+            style={{ backgroundColor: 'rgba(0, 180, 216, 0.2)', color: '#48cae4' }}>
+            Save 40%
+          </div>
+        )}
+        <p className="text-sm mt-2" style={{ color: 'rgba(248, 250, 255, 0.6)' }}>
+          One-time payment
+        </p>
       </div>
 
       <ul className="space-y-3 mb-8">
@@ -791,7 +783,7 @@ function EmailSignupForm() {
 
       {status === 'success' && (
         <p className="mt-4 text-sm" style={{ color: '#27c93f' }}>
-          Thanks for subscribing! Check your inbox.
+          Thanks for signing up! Stay tuned for updates.
         </p>
       )}
       {status === 'conflict' && (
