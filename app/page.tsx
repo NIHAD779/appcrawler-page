@@ -179,7 +179,7 @@ export default function Home() {
                 <span className="block mt-2" style={{ color: '#48cae4' }}>In Minutes</span>
               </h1>
               <p className="text-base md:text-lg max-w-lg mx-auto md:mx-0" style={{ color: 'rgba(248, 250, 255, 0.7)' }}>
-                Analyze your complete Android codebase instantly. Get comprehensive app context in tabular and graph formats—right inside Android Studio.
+                Analyze your complete Android codebase instantly. Get comprehensive app context in tabular and graph formats right inside Android Studio.
               </p>
               
               
@@ -347,7 +347,7 @@ export default function Home() {
           {/* Feature 1: Complete Codebase Analysis - Text Left, Illustration Right */}
           <FeatureSection
             title="Scan your entire codebase in minutes"
-            description="AppCrawler intelligently analyzes your complete Android project, extracting every screen, navigation flow, and architecture pattern. No manual documentation needed."
+            description="AppCrawler intelligently analyzes your complete project, extracting every screen and navigation flow without the need for manual documentation."
             illustration={<CodebaseAnalysisIllustration />}
             layoutRight={true}
           />
@@ -355,7 +355,7 @@ export default function Home() {
           {/* Feature 2: Multiple Output Formats - Text Right, Illustration Left */}
           <FeatureSection
             title="View your app context in any format"
-            description="Switch between tabular data for quick analysis or interactive graphs for visual exploration and team collaboration."
+            description="Switch between tabular data for quick analysis or interactive graphs for visual exploration."
             illustration={<OutputFormatsIllustration />}
             layoutRight={false}
           />
@@ -363,7 +363,7 @@ export default function Home() {
           {/* Feature 3: Native Android Studio Integration - Text Left, Illustration Right */}
           <FeatureSection
             title="Works seamlessly in your IDE"
-            description="A native Android Studio plugin that delivers comprehensive app context directly in your workspace. Start analyzing with a single click—no context switching required."
+            description="A native Android Studio plugin that delivers comprehensive app context directly in your workspace. Start analyzing with a single click."
             illustration={<IDEIntegrationIllustration />}
             layoutRight={true}
           />
@@ -383,8 +383,8 @@ export default function Home() {
           <div className="flex justify-center max-w-md mx-auto">
             <PricingCard
               name="AppCrawler"
-              price="$29"
-              originalPrice="$49"
+              price="$5"
+              originalPrice="$10"
               features={[
                 "Unlimited projects",
                 "All output formats",
@@ -671,7 +671,7 @@ function PricingCard({ name, price, originalPrice, features, ctaText, ctaLink, h
         {originalPrice && (
           <div className="inline-block px-3 py-1 rounded-full text-xs font-semibold" 
             style={{ backgroundColor: 'rgba(0, 180, 216, 0.2)', color: '#48cae4' }}>
-            Save 40%
+            Save 50%
           </div>
         )}
         <p className="text-sm mt-2" style={{ color: 'rgba(248, 250, 255, 0.6)' }}>
