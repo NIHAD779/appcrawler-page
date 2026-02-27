@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import AppCrawlerIllustration from "./components/AppCrawlerIllustration";
 import { CodebaseAnalysisIllustration, OutputFormatsIllustration, IDEIntegrationIllustration } from "./components/FeatureIllustrations";
 
@@ -38,14 +38,31 @@ export default function Home() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const faqs = [
+  const faqs: { question: string; answer: React.ReactNode }[] = [
     {
-      question: "What Android Studio versions are supported?",
-      answer: "AppCrawler supports Android Studio Arctic Fox (2020.3.1) and later versions, including all IntelliJ IDEA versions from 2020.3 onwards."
+      question: "Do I need an API key?",
+      answer: "Yes. The plugin asks for an OpenAI API key on the welcome screen; it's used for AI-powered analysis."
     },
     {
-      question: "What powers AppCrawler's analysis?",
-      answer: "AppCrawler is powered by OpenAI models under the hood, enabling intelligent analysis of your Android codebase to extract comprehensive app context including navigation flows, architecture patterns, and component relationships."
+      question: "Do I need to set up anything?",
+      answer: (
+        <>
+          You need JCEF (JetBrains Runtime with Chromium Embedded Framework) to render the interactive navigation graph. You can also follow{" "}
+          <a href="https://youtu.be/Q2p0dKzz_o4" target="_blank" rel="noopener noreferrer" className="underline hover:opacity-80" style={{ color: "#48cae4" }}>this tutorial</a> for setup.
+        </>
+      )
+    },
+    {
+      question: "How do I run an analysis?",
+      answer: "Open the QAPilot tool window (right sidebar or View → Tool Windows → QAPilot), enter your OpenAI API key and click Analyze Project."
+    },
+    {
+      question: "How long does analysis take?",
+      answer: "Analysis usually takes about 2–4 minutes, with progress shown in the UI."
+    },
+    {
+      question: "What Android Studio versions are supported?",
+      answer: "AppCrawler supports Android Studio 2024.2 and newer."
     },
     {
       question: "Is my code uploaded anywhere?",
@@ -53,15 +70,11 @@ export default function Home() {
     },
     {
       question: "How much does AppCrawler cost?",
-      answer: "AppCrawler is available for a one-time payment of $29 (normally $49). This launch offer includes lifetime access to all features and future updates. No subscriptions or recurring fees."
-    },
-    {
-      question: "What types of app context can AppCrawler analyze?",
-      answer: "AppCrawler analyzes your complete Android app including Activity transitions, Fragment navigation, Jetpack Compose flows, screen hierarchies, deep links, data models, and overall architecture patterns."
+      answer: "You can pick up AppCrawler for a one-time payment of $5 right now as part of our launch deal."
     },
     {
       question: "What output formats are available?",
-      answer: "You can view and export your app context in two formats: tabular data for structured analysis and interactive graphs for visual exploration."
+      answer: "You can view your app context in two formats: tabular data for structured analysis and interactive graphs for visual exploration."
     }
   ];
 
