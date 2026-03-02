@@ -71,7 +71,7 @@ export default function Home() {
     },
     {
       question: "How much does AppCrawler cost?",
-      answer: "You can pick up AppCrawler for a one-time payment of $5 right now as part of our launch deal."
+      answer: "You can pick up AppCrawler for a one-time payment of $10 right now as part of our launch deal."
     },
     {
       question: "What output formats are available?",
@@ -88,9 +88,9 @@ export default function Home() {
       {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b" style={{ backgroundColor: 'rgba(10, 31, 68, 0.8)', borderColor: 'rgba(0, 119, 182, 0.2)' }}>
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="text-2xl font-bold" style={{ color: '#F8FAFF' }}>
+          <a href="#hero" className="text-2xl font-bold no-underline" style={{ color: '#F8FAFF' }}>
             App<span style={{ color: '#00b4d8' }}>Crawler</span>
-          </div>
+          </a>
           
           {/* Desktop nav */}
           <div className="hidden md:flex gap-8 items-center text-sm font-medium">
@@ -187,7 +187,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-24 md:pt-40 md:pb-32 px-6 relative">
+      <section id="hero" className="pt-32 pb-24 md:pt-40 md:pb-32 px-6 relative">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
             {/* Left: Text + CTA */}
