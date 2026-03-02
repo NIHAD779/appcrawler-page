@@ -489,40 +489,55 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6" style={{ backgroundColor: '#F8FAFF' }}>
+      <footer className="py-6 px-6" style={{ backgroundColor: '#F8FAFF' }}>
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+            {/* Brand */}
             <div>
-              <div className="text-2xl font-bold mb-4" style={{ color: '#0A1F44' }}>
+              <div className="text-2xl font-bold mb-2" style={{ color: '#0A1F44' }}>
                 App<span style={{ color: '#0077b6' }}>Crawler</span>
               </div>
               <p className="text-sm max-w-xs" style={{ color: 'rgba(10, 31, 68, 0.6)' }}>
                 Get complete app context for your Android projects in minutes.
               </p>
             </div>
-            
+
+            {/* Also Available As */}
             <div>
-              <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider" style={{ color: '#0A1F44' }}>
+              <h4 className="font-semibold mb-3 text-xs uppercase tracking-wider" style={{ color: '#0A1F44' }}>
                 Also Available As
               </h4>
-              <div className="space-y-3">
+              <div className="space-y-2">
                 <div>
                   <div className="font-medium text-sm" style={{ color: '#0077b6' }}>MCP Server</div>
-                  <p className="text-xs mt-1" style={{ color: 'rgba(10, 31, 68, 0.6)' }}>
-                    Access AppCrawler as a Model Context Protocol server
-                  </p>
+                  <p className="text-xs" style={{ color: 'rgba(10, 31, 68, 0.6)' }}>Coming soon</p>
                 </div>
                 <div>
                   <div className="font-medium text-sm" style={{ color: '#0077b6' }}>API Access</div>
-                  <p className="text-xs mt-1" style={{ color: 'rgba(10, 31, 68, 0.6)' }}>
-                    Integrate app-context analysis via REST API
-                  </p>
+                  <p className="text-xs" style={{ color: 'rgba(10, 31, 68, 0.6)' }}>Coming soon</p>
                 </div>
               </div>
             </div>
+
+            {/* Support */}
+            <div>
+              <h4 className="font-semibold mb-3 text-xs uppercase tracking-wider" style={{ color: '#0A1F44' }}>
+                Support
+              </h4>
+              <a
+                href="mailto:nihad.u@qapilot.com"
+                className="text-sm hover:opacity-80 transition-opacity"
+                style={{ color: '#0077b6' }}
+              >
+                nihad.u@qapilot.com
+              </a>
+            </div>
           </div>
-          
-          <div className="mt-8 pt-8 text-center text-sm" style={{ borderTop: '1px solid rgba(10, 31, 68, 0.1)', color: 'rgba(10, 31, 68, 0.6)' }}>
+
+          <div className="mt-5 pt-4 text-center text-xs" style={{ borderTop: '1px solid rgba(10, 31, 68, 0.1)', color: 'rgba(10, 31, 68, 0.5)' }}>
+          <p className="text-xs mt-2" style={{ color: 'rgba(10, 31, 68, 0.5)' }}>
+                Built by <span className="font-semibold" style={{ color: '#0077b6' }}>QApilot</span>
+              </p>
             © {new Date().getFullYear()} AppCrawler. All rights reserved.
           </div>
         </div>
