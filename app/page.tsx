@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import AppCrawlerIllustration from "./components/AppCrawlerIllustration";
 import { CodebaseAnalysisIllustration, OutputFormatsIllustration, IDEIntegrationIllustration } from "./components/FeatureIllustrations";
 
@@ -75,6 +76,10 @@ export default function Home() {
     {
       question: "What output formats are available?",
       answer: "You can view your app context in two formats: tabular data for structured analysis and interactive graphs for visual exploration."
+    },
+    {
+      question: "Do you offer refunds?",
+      answer: "All purchases are final and non-refundable. However, if you run into any trouble with installation, configuration, or running your analysis, we'll provide hands-on support until everything is working smoothly. Your success with the product is our priority."
     }
   ];
 
@@ -243,23 +248,26 @@ export default function Home() {
             Trusted by Android Developers
           </h2>
           
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 items-stretch">
             <TestimonialCard
-              quote="AppCrawler saved me hours of digging through code. I can now understand any Android project in minutes instead of days."
-              author="Sarah Chen"
-              role="Senior Android Developer"
+              quote="AppCrawler completely changed how I explore unfamiliar Android codebases. As a developer, being able to instantly see the full project structure and flow saves me hours every time I jump into a new repo."
+              author="Aakash B"
+              role="Software Developer"
+              image="/aakash.JPG"
             />
             
             <TestimonialCard
-              quote="The navigation flow visualizations are incredible. Finally, a tool that makes onboarding new team members painless."
-              author="Marcus Johnson"
-              role="Tech Lead, Mobile Team"
+              quote="From a product perspective, AppCrawler gives our team a shared understanding of the app without relying on engineering to explain every screen. Onboarding, feature planning, and sprint scoping have all gotten faster."
+              author="Kammara Charan Tej"
+              role="Product Manager"
+              image="/charan.png"
             />
             
             <TestimonialCard
-              quote="Game changer for legacy codebases. I can quickly map out the entire app structure without manually tracing through hundreds of files."
-              author="Priya Sharma"
-              role="Android Architect"
+              quote="AppCrawler has become an essential part of our QA process. I can trace user flows, spot untested paths, and understand exactly how screens connect — all without waiting for a dev walkthrough."
+              author="Sai Sudheer Reddy"
+              role="QA Lead"
+              image="/sudheer.png"
             />
           </div>
         </div>
@@ -396,8 +404,8 @@ export default function Home() {
           <div className="flex justify-center max-w-md mx-auto">
             <PricingCard
               name="AppCrawler"
-              price="$5"
-              originalPrice="$10"
+              price="$10"
+              originalPrice="$20"
               features={[
                 "Unlimited projects",
                 "All output formats",
@@ -566,17 +574,18 @@ function FeatureSection({ title, description, illustration, layoutRight }: {
 }
 
 // Testimonial Card Component
-function TestimonialCard({ quote, author, role }: {
+function TestimonialCard({ quote, author, role, image }: {
   quote: string;
   author: string;
   role: string;
+  image: string;
 }) {
   const [ref, inView] = useInView();
 
   return (
     <div
       ref={ref}
-      className={`p-6 md:p-8 rounded-2xl border transition-all duration-300 ${
+      className={`flex flex-col p-6 md:p-8 rounded-2xl border transition-all duration-300 ${
         inView ? 'animate-on-scroll visible' : 'animate-on-scroll'
       }`}
       style={{ 
@@ -584,14 +593,20 @@ function TestimonialCard({ quote, author, role }: {
         borderColor: 'rgba(0, 119, 182, 0.3)'
       }}
     >
-      <p className="text-base md:text-lg italic mb-6 leading-relaxed" style={{ color: 'rgba(248, 250, 255, 0.9)' }}>
+      <p className="text-base md:text-lg italic mb-6 leading-relaxed flex-1" style={{ color: 'rgba(248, 250, 255, 0.9)' }}>
         &ldquo;{quote}&rdquo;
       </p>
-      <div className="flex items-center gap-3">
-        <div className="w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold" style={{ backgroundColor: '#0077b6', color: '#F8FAFF' }}>
-          {author.charAt(0)}
+      <div className="flex items-center gap-3 mt-auto">
+        <div className="w-12 h-12 rounded-full overflow-hidden shrink-0">
+          <Image
+            src={image}
+            alt={author}
+            width={48}
+            height={48}
+            className="w-full h-full object-cover"
+          />
         </div>
-        <div>
+        <div className="text-left">
           <div className="font-semibold" style={{ color: '#F8FAFF' }}>
             {author}
           </div>
