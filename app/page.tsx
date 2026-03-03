@@ -273,7 +273,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Demo / Video Placeholder Section */}
+      {/* Demo Video Section */}
       <section className="py-24 md:py-32 px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12" style={{ color: '#F8FAFF' }}>
@@ -285,25 +285,15 @@ export default function Home() {
             borderColor: 'rgba(0, 119, 182, 0.3)',
             paddingBottom: '56.25%'
           }}>
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-              {/* Play Button Icon */}
-              <div className="w-20 h-20 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 cursor-pointer"
-                style={{ 
-                  backgroundColor: 'rgba(0, 119, 182, 0.2)',
-                  border: '3px solid #00b4d8'
-                }}>
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M10 8L24 16L10 24V8Z" fill="#48cae4"/>
-                </svg>
-              </div>
-              
-              <p className="text-lg md:text-xl font-medium" style={{ color: '#48cae4' }}>
-                Demo Coming Soon
-              </p>
-              <p className="text-sm md:text-base" style={{ color: 'rgba(248, 250, 255, 0.5)' }}>
-                Watch how AppCrawler analyzes your entire codebase in seconds
-              </p>
-            </div>
+            <iframe
+              className="absolute inset-0 w-full h-full"
+              src="https://www.youtube.com/embed/eiKiVzXtzQ8?si=8xOUuN5BkA45Eze7"
+              title="AppCrawler Demo"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
           </div>
         </div>
       </section>
