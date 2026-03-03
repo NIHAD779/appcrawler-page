@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "AppCrawler - Android Studio App Context Plugin",
   description: "Analyze your entire Android codebase and get complete app context in minutes. View your app structure in tabular and graph formats right inside Android Studio.",
+  icons: {
+    icon: "/icon.png",
+  },
   openGraph: {
     title: "AppCrawler - Understand Your Entire App in Minutes",
     description: "Analyze your Android codebase and get complete app context instantly. View your app structure in tabular and graph formats right inside Android Studio.",
