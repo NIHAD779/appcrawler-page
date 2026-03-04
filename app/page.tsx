@@ -250,21 +250,21 @@ export default function Home() {
           
           <div className="grid md:grid-cols-3 gap-6 md:gap-8 items-stretch">
             <TestimonialCard
-              quote="AppCrawler completely changed how I explore unfamiliar Android codebases. As a developer, being able to instantly see the full project structure and flow saves me hours every time I jump into a new repo."
-              author="Aakash B"
+              quote={<>I used to spend days just trying to understand a legacy codebase before making any changes. With AppCrawler, I can <span className="font-bold" style={{ color: '#F8FAFF' }}>revisit any legacy project and get the full context in minutes</span> — every screen, every flow, all mapped out. It completely <span className="font-bold" style={{ color: '#F8FAFF' }}>eliminates the guesswork when jumping into unfamiliar code</span>.</>}
+              author="Nageswararao Telukutla"
               role="Software Developer"
-              image="/aakash.JPG"
+              image="/nageswararao.png"
             />
             
             <TestimonialCard
-              quote="From a product perspective, AppCrawler gives our team a shared understanding of the app without relying on engineering to explain every screen. Onboarding, feature planning, and sprint scoping have all gotten faster."
-              author="Kammara Charan Tej"
+              quote={<>Onboarding used to be our biggest bottleneck — new team members would take weeks to ramp up. Now I just share the AppCrawler output and they <span className="font-bold" style={{ color: '#F8FAFF' }}>understand the entire app on day one</span>. It has <span className="font-bold" style={{ color: '#F8FAFF' }}>cut our onboarding time dramatically</span> and everyone gets a shared understanding without relying on engineering walkthroughs.</>}
+              author="Nandana Dileep"
               role="Product Manager"
-              image="/charan.png"
+              image="/nandana.jpeg"
             />
             
             <TestimonialCard
-              quote="AppCrawler has become an essential part of our QA process. I can trace user flows, spot untested paths, and understand exactly how screens connect — all without waiting for a dev walkthrough."
+              quote={<>Before AppCrawler, I had to either install the app and click through every screen or wait for a developer to walk me through it. Now I get a <span className="font-bold" style={{ color: '#F8FAFF' }}>complete overview of the app without touching the actual build</span> — every screen, every user flow — <span className="font-bold" style={{ color: '#F8FAFF' }}>without depending on any developer</span>.</>}
               author="Sai Sudheer Reddy"
               role="QA Lead"
               image="/sudheer.png"
@@ -580,7 +580,7 @@ function FeatureSection({ title, description, illustration, layoutRight }: {
 
 // Testimonial Card Component
 function TestimonialCard({ quote, author, role, image }: {
-  quote: string;
+  quote: React.ReactNode;
   author: string;
   role: string;
   image: string;
@@ -598,9 +598,9 @@ function TestimonialCard({ quote, author, role, image }: {
         borderColor: 'rgba(0, 119, 182, 0.3)'
       }}
     >
-      <p className="text-base md:text-lg italic mb-6 leading-relaxed flex-1" style={{ color: 'rgba(248, 250, 255, 0.9)' }}>
+      <div className="text-base md:text-lg italic mb-6 leading-relaxed flex-1" style={{ color: 'rgba(248, 250, 255, 0.7)' }}>
         &ldquo;{quote}&rdquo;
-      </p>
+      </div>
       <div className="flex items-center gap-3 mt-auto">
         <div className="w-12 h-12 rounded-full overflow-hidden shrink-0">
           <Image
