@@ -526,7 +526,7 @@ export default function Home() {
 
           <div className="mt-5 pt-4 text-center text-xs" style={{ borderTop: '1px solid rgba(10, 31, 68, 0.1)', color: 'rgba(10, 31, 68, 0.5)' }}>
           <p className="text-xs mt-2" style={{ color: 'rgba(10, 31, 68, 0.5)' }}>
-                Built by <span className="font-semibold" style={{ color: '#0077b6' }}>MobileAgents.io</span>
+                Built by <a href="https://mobileagents.io/" target="_blank" rel="noopener noreferrer" className="font-semibold" style={{ color: '#0077b6' }}>MobileAgents.io</a>
               </p>
             © {new Date().getFullYear()} AppCrawler. All rights reserved.
           </div>
