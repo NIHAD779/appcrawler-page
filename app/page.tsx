@@ -104,7 +104,7 @@ export default function Home() {
               FAQ
             </a>
             <a
-              href="https://qapilotlabs.gumroad.com/l/aohgky"
+              href="https://mobileagents.gumroad.com/l/aohgky"
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
@@ -171,7 +171,7 @@ export default function Home() {
               FAQ
             </a>
             <a
-              href="https://qapilotlabs.gumroad.com/l/aohgky"
+              href="https://mobileagents.gumroad.com/l/aohgky"
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-3 rounded-full font-semibold transition-all duration-300 text-center text-sm"
@@ -204,7 +204,7 @@ export default function Home() {
               {/* CTA with direct link */}
               <div>
                 <a
-                  href="https://qapilotlabs.gumroad.com/l/aohgky"
+                  href="https://mobileagents.gumroad.com/l/aohgky"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="cta-button inline-flex items-center gap-3 px-8 py-4 rounded-full text-base md:text-lg font-semibold transition-all duration-300 transform hover:scale-105"
@@ -405,7 +405,7 @@ export default function Home() {
                 "Lifetime updates"
               ]}
               ctaText="Get AppCrawler Now"
-              ctaLink="https://qapilotlabs.gumroad.com/l/aohgky"
+              ctaLink="https://mobileagents.gumroad.com/l/aohgky"
               highlighted={true}
               badge="Launch Offer"
             />
@@ -526,7 +526,7 @@ export default function Home() {
 
           <div className="mt-5 pt-4 text-center text-xs" style={{ borderTop: '1px solid rgba(10, 31, 68, 0.1)', color: 'rgba(10, 31, 68, 0.5)' }}>
           <p className="text-xs mt-2" style={{ color: 'rgba(10, 31, 68, 0.5)' }}>
-                Built by <span className="font-semibold" style={{ color: '#0077b6' }}>QApilot</span>
+                Built by <span className="font-semibold" style={{ color: '#0077b6' }}>MobileAgents.io</span>
               </p>
             © {new Date().getFullYear()} AppCrawler. All rights reserved.
           </div>
