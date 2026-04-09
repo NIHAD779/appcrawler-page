@@ -287,7 +287,7 @@ export default function Home() {
           }}>
             <iframe
               className="absolute inset-0 w-full h-full"
-              src="https://youtu.be/QwtoqQbORv4"
+              src="https://www.youtube.com/embed/QwtoqQbORv4"
               title="AppCrawler Demo"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
