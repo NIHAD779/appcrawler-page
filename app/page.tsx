@@ -55,7 +55,7 @@ export default function Home() {
     },
     {
       question: "How do I run an analysis?",
-      answer: "Open the QAPilot tool window (right sidebar or View → Tool Windows → QAPilot), enter your OpenAI API key and click Analyze Project."
+      answer: "Open the Appcrawler tool window (right sidebar or View → Tool Windows → Appcrawler), enter your OpenAI API key and click Analyze Project."
     },
     {
       question: "How long does analysis take?",
@@ -515,11 +515,11 @@ export default function Home() {
                 Support
               </h4>
               <a
-                href="mailto:nihad.u@qapilot.com"
+                href="mailto:support@mobileagents.io"
                 className="text-sm hover:opacity-80 transition-opacity"
                 style={{ color: '#0077b6' }}
               >
-                nihad.u@qapilot.com
+                support@mobileagents.io
               </a>
             </div>
           </div>
